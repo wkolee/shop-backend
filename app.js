@@ -6,14 +6,14 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const expressValidator = require("express-validator");
 require("dotenv").config();
-// import routes
+// import route
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const categoryRoutes = require("./routes/category");
 const productRoutes = require("./routes/product");
 const braintreeRoutes = require("./routes/braintree");
 const orderRoutes = require("./routes/order");
-console.log(process.env.DATABASE)
+//console.log(process.env.SENDGRID_API)
 // app
 const app = express();
 

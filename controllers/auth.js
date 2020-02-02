@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 
 
-
+/*
 exports.signup = (req, res) => {
     //console.log("req.body", req.body);
     const user = new User(req.body);
@@ -16,6 +16,25 @@ exports.signup = (req, res) => {
         }
         user.salt = undefined
         user.hashed_password = undefined
+        res.json({
+            user
+        });
+    });
+};
+*/
+
+exports.signup = (req, res) => {
+    // console.log("req.body", req.body);
+    const user = new User(req.body);
+    user.save((err, user) => {
+        if (err) {
+            return res.status(400).json({
+                // error: errorHandler(err)
+                error: 'Email is taken'
+            });
+        }
+        user.salt = undefined;
+        user.hashed_password = undefined;
         res.json({
             user
         });
